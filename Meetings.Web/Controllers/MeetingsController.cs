@@ -6,12 +6,6 @@ namespace Meetings.Web.Controllers
     [Route("api/meetings")]
     public class MeetingsController : Controller
     {
-        // GET
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         // Should return a single meeting by it's id, or return a 404 if the meeting doesn't exist
         public IActionResult GetMeeting()
         {

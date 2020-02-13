@@ -6,12 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Recipe.Web
+namespace Meetings.Web
 {
     public class Startup
     {
@@ -26,6 +27,13 @@ namespace Recipe.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<Meetings.Data.MeetingsContext>(options => {
+                options.UseSqlServer("server=.\\SQL2017;database=meetings;Integrated Security=true;");
+            });
+
+            services.AddScoped<Services.IMeetingService, Services.MeetingsService>();
+            services.AddScoped<Services.IRoomsService, Services.RoomsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
