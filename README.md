@@ -1,5 +1,4 @@
 # meeting-exercise
-## Candidate screening exercise
 
 You have been tasked with creating a meeting scheduling API. Complete as many of the pre-defined endpoints in the application as time permits.  Along the way, we may provide additional requirements or ask for changes to your design (agile!).
 
